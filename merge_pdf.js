@@ -25,20 +25,20 @@ async function mergePDFs(pdfPath1, pdfPath2, outputPath) {
     const mergedPdf = await PDFDocument.create();
 
     // Copy pages from the first PDF
-    const copiedPages1 = await mergedPdf.copyPages(pdf1, pdf1.getPageIndices());
+    const copiedPages1 = await mergedPdf.copyPages(pdf1, pdf1.getPageIndices()); // It transfers fonts/images to mergedPdf's internal resource pool
     copiedPages1.forEach((page) => {
         mergedPdf.addPage(page);
     });
 
     // Copy pages from the second PDF
-    const copiedPages2 = await mergedPdf.copyPages(pdf2, pdf2.getPageIndices());
+    const copiedPages2 = await mergedPdf.copyPages(pdf2, pdf2.getPageIndices()); 
     copiedPages2.forEach((page) => {
         mergedPdf.addPage(page);
     });
 
     // Save the merged PDF to a file
-    const finalPdf = await mergedPdf.save();
-    await fs.writeFile(outputPath, finalPdf);
+    const finalPdf = await mergedPdf.save(); // Converts PDFDocument object into binary data
+    await fs.writeFile(outputPath, finalPdf); // Writes that binary data to disk as a file
     
 }
 console.timeEnd("Load time");

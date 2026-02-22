@@ -1,0 +1,24 @@
+{
+  "name": "js_scripting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "merge_pdf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tazin407/JS_scripting.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Tazin407/JS_scripting/issues"
+  },
+  "homepage": "https://github.com/Tazin407/JS_scripting#readme",
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  }
+}

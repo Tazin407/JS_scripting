@@ -44,5 +44,14 @@ async function mergePDFs(pdfPath1, pdfPath2, outputPath) {
 console.timeEnd("Load time");
 
 console.time("Execution time")
-mergePDFs("https://icseindia.org/document/sample.pdf", "https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf", "./merged.pdf");
+// mergePDFs("https://icseindia.org/document/sample.pdf", "https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf", "./merged.pdf");
+const [pdf1, pdf2, output] = process.argv.slice(2);
+
+if (!pdf1 || !pdf2 || !output) {
+    console.log("Usage: node merge_pdf.js <pdf1> <pdf2> <output>");
+    process.exit(1);
+}
+
+mergePDFs(pdf1, pdf2, output);
+
 console.timeEnd("Execution time")
